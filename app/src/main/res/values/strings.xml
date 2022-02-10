@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">English Dictionary</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="history">history</string>
+    <string name="favorite">favorite</string>
+    <string name="home">home</string>
+    <string name="search">search</string>
+</resources>
