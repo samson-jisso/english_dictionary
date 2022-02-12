@@ -4,15 +4,14 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.example.englishdictionary.databinding.*
+import com.example.englishdictionary.detail.DetailFragment
 import com.example.englishdictionary.favorite.BookmarkFragment
 import com.example.englishdictionary.history.HistoryFragment
 import com.example.englishdictionary.home.HomeFragment
-import com.example.englishdictionary.search.SearchFragment
-import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
+    private val detailFragment = DetailFragment()
     private val homeFragment = HomeFragment()
-    private val searchFragment = SearchFragment()
     private val bookmarkFragment = BookmarkFragment()
     private val historyFragment = HistoryFragment()
     lateinit var binding: ActivityMainBinding
@@ -24,8 +23,8 @@ class MainActivity : AppCompatActivity() {
 
         bottomNavView.setOnItemSelectedListener {
             when (it.itemId) {
-                R.id.search -> {
-                    setThatFragment(searchFragment)
+                R.id.detail -> {
+                    setThatFragment(detailFragment)
                 }
                 R.id.bookmark -> {
                     setThatFragment(bookmarkFragment)

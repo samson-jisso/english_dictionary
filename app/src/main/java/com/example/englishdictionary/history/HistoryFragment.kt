@@ -23,10 +23,4 @@ class HistoryFragment : Fragment() {
         return inflater.inflate(R.layout.history_fragment, container, false)
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(HistoryViewModel::class.java)
-        // TODO: Use the ViewModel
-    }
-
 }
