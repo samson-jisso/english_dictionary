@@ -17,8 +17,8 @@
             android:id="@+id/action_homeFragment_to_historyFragment"
             app:destination="@id/historyFragment" />
         <action
-            android:id="@+id/action_homeFragment_to_detailFragment2"
-            app:destination="@id/detailFragment2" />
+            android:id="@+id/action_homeFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
     </fragment>
     <fragment
         android:id="@+id/favoriteFragment"
@@ -31,7 +31,12 @@
         android:label="history_fragment"
         tools:layout="@layout/history_fragment" />
     <fragment
-        android:id="@+id/detailFragment2"
+        android:id="@+id/detailFragment"
         android:name="com.example.englishdictionary.detail.DetailFragment"
-        android:label="DetailFragment" />
+        android:label="detail_fragment"
+        tools:layout="@layout/detail_fragment" >
+        <argument
+            android:name="StringSearched"
+            app:argType="string" />
+    </fragment>
 </navigation>
