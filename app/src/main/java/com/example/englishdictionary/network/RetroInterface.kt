@@ -1,6 +1,5 @@
 package com.example.englishdictionary.network
 
-import android.text.Editable
 import com.example.englishdictionary.network.dataClasses.DataResult
 import retrofit2.Call
 import retrofit2.http.GET

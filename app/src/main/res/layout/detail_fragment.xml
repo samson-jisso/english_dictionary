@@ -12,8 +12,11 @@
         android:layout_height="50dp"
         android:layout_margin="5dp"
         android:layout_marginTop="4dp"
-        android:padding="5dp"
+
+        android:padding="10dp"
         android:textSize="20sp"
+        android:visibility="gone"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -22,35 +25,40 @@
         android:id="@+id/copy"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="20dp"
+
         android:layout_marginTop="8dp"
         android:text="@string/copy"
-        android:textSize="20sp"
+        android:textSize="16sp"
+        android:visibility="gone"
+
         app:layout_constraintStart_toStartOf="@id/wordSearched"
         app:layout_constraintTop_toBottomOf="@+id/wordSearched" />
+
     <Button
         android:id="@+id/share"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-       android:layout_marginEnd="16dp"
+        android:layout_marginEnd="16dp"
         android:text="@string/share"
-        android:textSize="20sp"
-        app:layout_constraintStart_toEndOf="@+id/copy"
+        android:textSize="16sp"
+        android:visibility="gone"
         app:layout_constraintEnd_toStartOf="@+id/save"
+        app:layout_constraintStart_toEndOf="@+id/copy"
         app:layout_constraintTop_toBottomOf="@+id/wordSearched" />
 
     <Button
         android:id="@+id/save"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="16sp"
         android:text="@string/save"
-        android:layout_marginStart="16dp"
-        android:textSize="20sp"
+        android:textSize="16sp"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@id/copy"
         app:layout_constraintEnd_toEndOf="@id/wordSearched"
-        app:layout_constraintStart_toEndOf="@+id/copy"
         app:layout_constraintTop_toTopOf="@id/copy" />
 
     <ScrollView
@@ -65,9 +73,13 @@
         app:layout_constraintVertical_bias="0.143">
 
         <LinearLayout
+            android:id="@+id/linearView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:visibility="gone"
+
+            >
 
             <TextView
                 android:id="@+id/sound"
@@ -80,7 +92,6 @@
                 android:id="@+id/soundDetail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
                 android:layout_marginStart="@dimen/BoldSize" />
 
             <TextView
@@ -116,4 +127,45 @@
     </ScrollView>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/loading_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:gravity="center_horizontal"
+        android:text="@string/loading"
+        android:textSize="@dimen/BoldSize"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/progressBar"
+        app:layout_constraintStart_toStartOf="@+id/progressBar"
+        app:layout_constraintTop_toBottomOf="@+id/progressBar" />
+
+</androidx.constraintlayout.widget.ConstraintLayout><!--  <com.google.android.material.progressindicator.CircularProgressIndicator-->
+    <!--        android:id="@+id/progress_bar"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        style="@style/Widget.Material3.CircularProgressIndicator"-->
+    <!--        android:contentDescription="@string/loading"-->
+    <!--        app:trackThickness="@dimen/BoldSize"-->
+    <!--        app:indicatorColor="@color/purple_700"-->
+    <!--        android:indeterminate="true"-->
+    <!--        android:indeterminateDuration="@integer/material_motion_duration_long_1"-->
+    <!--        app:trackColor="@color/white"-->
+    <!--        app:showAnimationBehavior="outward"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintLeft_toLeftOf="parent"-->
+    <!--        app:layout_constraintRight_toRightOf="parent"-->
+    <!--        app:indicatorSize="40sp"-->
+    <!--        app:layout_constraintTop_toTopOf="parent" />-->

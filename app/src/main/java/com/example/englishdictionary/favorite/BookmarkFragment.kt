@@ -1,26 +1,29 @@
 package com.example.englishdictionary.favorite
 
+import android.app.Application
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.englishdictionary.R
+import com.example.englishdictionary.databinding.FavoriteFragmentBinding
 
 class BookmarkFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = BookmarkFragment()
-    }
-
     private lateinit var viewModel: BookmarkViewModel
-
+    private lateinit var binding: FavoriteFragmentBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.favorite_fragment, container, false)
+        binding = FavoriteFragmentBinding.inflate(layoutInflater)
+        val application: Application = requireNotNull(this.activity).application
+       // val savedWordSource = WordDatabase.getInstance(application).savedWordsDao
+     //   val viewModelFactory = BookmarkViewModelFactory(savedWordSource,application)
+       // viewModel = ViewModelProvider(this,viewModelFactory)[BookmarkViewModel::class.java]
+
+        return binding.root
     }
 
 }

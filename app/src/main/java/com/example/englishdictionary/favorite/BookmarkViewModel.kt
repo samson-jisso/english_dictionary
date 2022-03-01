@@ -1,7 +1,10 @@
 package com.example.englishdictionary.favorite
 
-import androidx.lifecycle.ViewModel
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 
-class BookmarkViewModel : ViewModel() {
-    // TODO: Implement the ViewModel
+class BookmarkViewModel (
+    application: Application
+) : AndroidViewModel(application) {
+
 }
