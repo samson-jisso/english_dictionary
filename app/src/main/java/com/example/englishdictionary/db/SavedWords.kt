@@ -1,5 +1,6 @@
 package com.example.englishdictionary.db
 
+import android.text.Editable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
@@ -10,8 +11,8 @@ data class SavedWords(
     var wordId: Int,
     @ColumnInfo(name = "word")
     var word: String,
-    @ColumnInfo(name = "meaning")
-    var meanings: String,
     @ColumnInfo(name = "partOfSpeech")
-    var partOfSpeech: String
+    var partOfSpeech: String,
+    @ColumnInfo(name = "meaning")
+    var meanings: String
 )

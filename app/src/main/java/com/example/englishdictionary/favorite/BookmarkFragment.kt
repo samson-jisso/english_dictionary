@@ -7,7 +7,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.englishdictionary.databinding.FavoriteFragmentBinding
+import com.example.englishdictionary.db.WordDatabase
 
 class BookmarkFragment : Fragment() {
 
@@ -19,9 +22,20 @@ class BookmarkFragment : Fragment() {
     ): View? {
         binding = FavoriteFragmentBinding.inflate(layoutInflater)
         val application: Application = requireNotNull(this.activity).application
-       // val savedWordSource = WordDatabase.getInstance(application).savedWordsDao
-     //   val viewModelFactory = BookmarkViewModelFactory(savedWordSource,application)
-       // viewModel = ViewModelProvider(this,viewModelFactory)[BookmarkViewModel::class.java]
+        val savedWordSource = WordDatabase.getInstance(application).savedWordsDao
+        val viewModelFactory = BookmarkViewModelFactory(savedWordSource,application)
+        viewModel = ViewModelProvider(this,viewModelFactory)[BookmarkViewModel::class.java]
+
+        //binding.wordList.layoutManager = LinearLayoutManager(requireContext())
+        val adapter = WordAdapter()
+        binding.wordList.adapter = adapter
+
+        viewModel.words.observe(viewLifecycleOwner) {
+            it?.let {
+                adapter.data = it
+
+            }
+        }
 
         return binding.root
     }

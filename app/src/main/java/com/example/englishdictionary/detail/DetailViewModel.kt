@@ -28,7 +28,7 @@ class DetailViewModel(
 
     fun onSaveTracking(wordId: Int, word: String, partOfSpeech: String, meanings: String) {
         viewModelScope.launch(Dispatchers.IO){
-            val definitions = SavedWords(wordId, word, partOfSpeech, meanings)
+            val definitions = SavedWords(wordId, word,partOfSpeech, meanings)
                 insert(definitions)
         }
     }

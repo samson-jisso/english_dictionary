@@ -3,4 +3,4 @@ package com.example.englishdictionary.favorite
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class TextViewHolder(private val textView:TextView) :RecyclerView.ViewHolder(textView)
+class TextViewHolder( val textView:TextView) :RecyclerView.ViewHolder(textView)

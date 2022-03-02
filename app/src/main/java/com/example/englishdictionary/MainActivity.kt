@@ -25,7 +25,7 @@ lateinit var toggle: ActionBarDrawerToggle
 
 class MainActivity : AppCompatActivity() {
     lateinit var drawerLayout: DrawerLayout
-lateinit var navController : NavController
+    lateinit var navController: NavController
     lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,8 +56,8 @@ lateinit var navController : NavController
         return super.onOptionsItemSelected(item)
     }
 
-    private fun changeFragment(fragment:Int) {
-      findNavController(R.id.nav_host_fragment).navigate(fragment)
+    private fun changeFragment(fragment: Int) {
+        findNavController(R.id.nav_host_fragment).navigate(fragment)
         drawerLayout.close()
     }
 }
