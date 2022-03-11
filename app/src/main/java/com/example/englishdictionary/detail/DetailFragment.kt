@@ -3,20 +3,20 @@ package com.example.englishdictionary.detail
 import android.app.Application
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import android.os.CountDownTimer
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.activityViewModels
+import com.example.englishdictionary.util.SharedViewModel
 import com.example.englishdictionary.databinding.DetailFragmentBinding
 import com.example.englishdictionary.db.WordDatabase
-import com.example.englishdictionary.home.HomeViewModel
 
 class DetailFragment : Fragment() {
     private lateinit var binding: DetailFragmentBinding
     private lateinit var viewModel: DetailViewModel
-    private val homeViewModel: HomeViewModel by activityViewModels()
+    private val sharedViewModel: SharedViewModel by activityViewModels()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -25,31 +25,25 @@ class DetailFragment : Fragment() {
         val savedWordSource = WordDatabase.getInstance(application).savedWordsDao
         val viewModelFactory = DetailViewModelFactory(savedWordSource, application)
         viewModel = ViewModelProvider(this, viewModelFactory)[DetailViewModel::class.java]
-        binding = DetailFragmentBinding.inflate(layoutInflater)
-        val timer = object : CountDownTimer(1000, 500) {
-            override fun onTick(millisUntilFinished: Long) {
-                binding.progressBar.visibility = View.VISIBLE
-                binding.loadingText.visibility = View.VISIBLE
-            }
-
-            override fun onFinish() {
-                binding.progressBar.visibility = View.GONE
-                binding.loadingText.visibility = View.GONE
-            }
+        binding = DetailFragmentBinding.inflate(this.layoutInflater)
+        binding.apply {
+            progressBar.visibility = View.VISIBLE
+            loadingText.visibility = View.VISIBLE
         }
-        timer.start()
         initViewModel()
-        homeViewModel.wordSearched.observe(viewLifecycleOwner) {
+        sharedViewModel.wordSearched.observe(viewLifecycleOwner) {
             viewModel.getDefinition(it)
         }
-        binding.save.setOnClickListener {
-            viewModel.onSaveTracking(
-                0,
-                binding.wordSearched.text.toString(),
-                binding.partOfSpeechDetail.text.toString(),
-                binding.meaningDetail.text.toString()
-            )
-
+        binding.apply {
+            save.setOnClickListener {
+                    viewModel.onSaveTracking(
+                        0,
+                        wordSearched.text.toString(),
+                        partOfSpeechDetail.text.toString(),
+                        meaningDetail.text.toString(),
+                        it.context
+                    )
+            }
         }
         return binding.root
     }
@@ -58,9 +52,16 @@ class DetailFragment : Fragment() {
         viewModel = ViewModelProvider(this)[DetailViewModel::class.java]
         viewModel.getResult().observe(viewLifecycleOwner) {
             if (it == null) {
-                println(null)
+                binding.apply {
+                    progressBar.visibility = View.GONE
+                    loadingText.visibility = View.GONE
+                    userError.visibility = View.VISIBLE
+                    userError.text = viewModel.userErrorTitle
+                }
             } else {
                 binding.apply {
+                    progressBar.visibility = View.GONE
+                    loadingText.visibility = View.GONE
                     wordSearched.text = it[0].word
                     soundDetail.text = it[0].phonetic
                     partOfSpeechDetail.text = it[0].meanings[0].partOfSpeech

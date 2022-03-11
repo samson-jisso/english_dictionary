@@ -2,31 +2,21 @@ package com.example.englishdictionary
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.Layout
 import android.view.MenuItem
-import android.view.View
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.drawerlayout.widget.DrawerLayout
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
 import androidx.navigation.NavController
-import androidx.navigation.NavDirections
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
-import androidx.navigation.ui.setupActionBarWithNavController
 import com.example.englishdictionary.databinding.*
-import com.example.englishdictionary.favorite.BookmarkFragment
-import com.example.englishdictionary.history.HistoryFragment
-import com.example.englishdictionary.home.HomeFragment
 import com.google.android.material.navigation.NavigationView
 
-lateinit var toggle: ActionBarDrawerToggle
-
 class MainActivity : AppCompatActivity() {
+    lateinit var toggle: ActionBarDrawerToggle
     lateinit var drawerLayout: DrawerLayout
-    lateinit var navController: NavController
     lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(this.layoutInflater)
@@ -45,6 +35,7 @@ class MainActivity : AppCompatActivity() {
             }
             true
         }
+
         setContentView(binding.root)
     }
 
@@ -61,6 +52,14 @@ class MainActivity : AppCompatActivity() {
         drawerLayout.close()
     }
 }
+//    override fun passData(editTextInput: String) {
+//        val bundle = Bundle()
+//        bundle.putString("word", editTextInput)
+//        val transaction = this.supportFragmentManager.beginTransaction()
+//        val detailFragment = DetailFragment()
+//        transaction.replace(R.id.nav_host_fragment, detailFragment)
+//        transaction.commit()
+//    }
 //        val bottomNavView = binding.bottomNav
 //        bottomNavView.setOnItemSelectedListener {
 //            when (it.itemId) {

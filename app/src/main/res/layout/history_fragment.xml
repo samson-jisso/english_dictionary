@@ -6,14 +6,46 @@
     android:layout_height="match_parent"
     tools:context=".history.HistoryFragment">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/history"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/history_word_list"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="5sp"
+        android:layout_marginTop="5sp"
+        android:layout_marginEnd="5sp"
+        app:layout_constraintBottom_toTopOf="@+id/delete_all"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <Button
+        android:id="@+id/delete_all"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10sp"
+        android:layout_marginEnd="10sp"
+        android:text="Clear"
+        android:textAllCaps="false"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/No_word"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="5sp"
+        android:layout_marginTop="5sp"
+        android:gravity="center"
+        android:text="No History Word"
+        android:textColor="#000"
+        android:textSize="19sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
