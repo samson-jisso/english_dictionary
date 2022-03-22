@@ -4,9 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/ic_weird_tiki_face"
     tools:context=".history.HistoryFragment">
-
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/history_word_list"
         android:layout_width="match_parent"
@@ -17,9 +16,8 @@
         app:layout_constraintBottom_toTopOf="@+id/delete_all"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+       app:layout_constraintTop_toTopOf="parent"
         />
-
     <Button
         android:id="@+id/delete_all"
         android:layout_width="match_parent"

@@ -7,8 +7,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SearchView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.view.contains
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.englishdictionary.databinding.HistoryFragmentBinding
@@ -21,14 +23,18 @@ import kotlin.math.absoluteValue
 class HistoryFragment : Fragment(), HistoryWordAdapter.Interaction {
 
     private lateinit var viewModel: HistoryViewModel
-    private lateinit var binding: HistoryFragmentBinding
+    private var _binding: HistoryFragmentBinding? = null
+
+    // This property is only valid between onCreateView and
+    // onDestroyView.
+    private val binding get() = _binding!!
     private lateinit var historyWordAdapter: HistoryWordAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = HistoryFragmentBinding.inflate(this.layoutInflater)
+        _binding = HistoryFragmentBinding.inflate(this.layoutInflater)
         val application: Application = requireNotNull(this.activity).application
         val historyWordSource = WordDatabase.getInstance(application).historyWordsDao
         val viewModelFactory = HistoryViewModelFactory(historyWordSource, application)
@@ -40,7 +46,9 @@ class HistoryFragment : Fragment(), HistoryWordAdapter.Interaction {
                 if (it.isEmpty()) {
                     binding.NoWord.visibility = View.VISIBLE
                 }
-                historyWordAdapter.submitList(it)
+                historyWordAdapter.submitList(it.sortedBy { it ->
+                    it.word
+                })
             }
         }
         binding.deleteAll.setOnClickListener {
@@ -65,5 +73,10 @@ class HistoryFragment : Fragment(), HistoryWordAdapter.Interaction {
 
     override fun deleteWord(item: HistoryWords) {
         viewModel.deleteWord(item)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

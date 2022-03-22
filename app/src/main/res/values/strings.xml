@@ -2,7 +2,7 @@
     <string name="app_name">English Dictionary</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
-    <string name="search_word">Enter the word to search</string>
+    <string name="search_word">Enter your word to search</string>
     <string name="new_word">New Word</string>
     <string name="history">history</string>
     <string name="favorite">favorite</string>
@@ -20,5 +20,6 @@
     <string name="close">close</string>
     <string name="open">open</string>
     <string name="loading">loading . . .</string>
+    <string name="definition">definition</string>
 
 </resources>

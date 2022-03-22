@@ -1,45 +1,190 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_gravity="center"
-    tools:context=".home.HomeFragment">
-
+    android:background="@drawable/ic_kuhlo_stamp_frame_1"
+   >
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textField"
+        style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:boxCornerRadiusBottomEnd="30dp"
-        app:boxCornerRadiusTopStart="30dp"
-        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginStart="20sp"
+        android:layout_marginTop="@dimen/BoldSize"
+        android:layout_marginEnd="20sp"
+        android:hint="@string/search_word"
+        app:endIconContentDescription="end_icon"
+        app:endIconDrawable="@drawable/ic_search"
+        app:endIconMode="custom"
+        app:endIconTint="@color/myChooseColor"
+        app:errorEnabled="true"
+        app:errorIconDrawable="@drawable/ic_warning"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/input_text"
+            android:id="@+id/editText"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:hint="@string/search_word" />
+            android:layout_height="wrap_content" />
+
     </com.google.android.material.textfield.TextInputLayout>
 
+    <TextView
+        android:id="@+id/wordSearched"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20sp"
+        android:padding="2dp"
+        android:text="@string/home"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="@id/textField"
+        app:layout_constraintTop_toBottomOf="@+id/textField" />
 
-    <Button
-        android:id="@+id/search_btn"
+    <TextView
+        android:id="@+id/sound"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#09EABD"
-        android:text="@string/search"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textField"
-        app:layout_constraintVertical_bias="0.0" />
+        android:layout_marginStart="30sp"
+        android:layout_marginEnd="20sp"
+        android:padding="2sp"
+        android:text="@string/home"
+        android:textSize="15sp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@id/btn_layout"
+        app:layout_constraintStart_toStartOf="@id/wordSearched"
+        app:layout_constraintTop_toBottomOf="@+id/wordSearched" />
 
+    <LinearLayout
+        android:id="@+id/btn_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20sp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="@+id/wordSearched"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/wordSearched">
+
+        <Button
+            android:id="@+id/speaker"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="50sp"
+            android:layout_height="50sp"
+            android:layout_marginEnd="5sp"
+
+            android:background="@drawable/ic_sound"
+            android:textSize="16sp"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/share"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="50sp"
+            android:layout_height="50sp"
+            android:layout_marginStart="5sp"
+            android:layout_marginEnd="5sp"
+
+            android:background="@drawable/ic_share"
+            android:textSize="16sp"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/save"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="50sp"
+            android:layout_height="50sp"
+            android:layout_marginStart="5sp"
+            android:background="@drawable/ic_save"
+            android:textSize="16sp"
+
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/share" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/line_text"
+        android:layout_width="match_parent"
+        android:layout_height="2sp"
+        android:layout_margin="5sp"
+        android:background="@color/myChooseColor"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/sound"
+        app:layout_constraintStart_toStartOf="@+id/sound"
+        app:layout_constraintTop_toBottomOf="@+id/sound" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/meaning_list"
+        android:layout_width="match_parent"
+        android:layout_height="0sp"
+        android:layout_marginStart="30sp"
+        android:layout_marginTop="5sp"
+        android:layout_marginEnd="5sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/line_text"
+        app:layout_constraintStart_toStartOf="@+id/line_text"
+        app:layout_constraintTop_toBottomOf="@+id/line_text" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50sp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textField" />
+
+    <TextView
+        android:id="@+id/loading_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:gravity="center_horizontal"
+        android:text="@string/loading"
+        android:textAllCaps="true"
+        android:textColor="@color/search"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/progressBar"
+        app:layout_constraintStart_toStartOf="@+id/progressBar"
+        app:layout_constraintTop_toBottomOf="@+id/progressBar" />
+
+
+    <TextView
+        android:id="@+id/user_error"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25sp"
+        android:gravity="center"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@id/textField"
+        app:layout_constraintStart_toStartOf="@id/textField"
+        app:layout_constraintTop_toBottomOf="@+id/textField" />
+
+    <TextView
+        android:id="@+id/server_error"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25sp"
+        android:gravity="center"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/user_error" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

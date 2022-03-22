@@ -25,7 +25,7 @@ class WordAdapter : RecyclerView.Adapter<TextViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TextViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
-        val view = layoutInflater.inflate(R.layout.text_item_view, parent, false) as TextView
+        val view = layoutInflater.inflate(R.layout.fav_item_view, parent, false) as TextView
         return TextViewHolder(view)
     }
 }

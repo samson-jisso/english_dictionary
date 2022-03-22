@@ -12,35 +12,55 @@
         <entry key="app/src/main/res/drawable/detail_icon.xml" value="0.2405" />
         <entry key="app/src/main/res/drawable/history_icon.xml" value="0.22" />
         <entry key="app/src/main/res/drawable/home_icons.xml" value="0.2845" />
+        <entry key="app/src/main/res/drawable/ic_abstract_geometry_forest_3.xml" value="0.268" />
+        <entry key="app/src/main/res/drawable/ic_background_home.xml" value="0.268" />
         <entry key="app/src/main/res/drawable/ic_baseline_bookmark_24.xml" value="0.2845" />
         <entry key="app/src/main/res/drawable/ic_baseline_bookmark_border_24.xml" value="0.2845" />
         <entry key="app/src/main/res/drawable/ic_baseline_history_toggle_off_24.xml" value="0.2845" />
+        <entry key="app/src/main/res/drawable/ic_clipboard_01.xml" value="0.268" />
         <entry key="app/src/main/res/drawable/ic_copy_icon.xml" value="0.3315" />
         <entry key="app/src/main/res/drawable/ic_delete.xml" value="0.2015" />
+        <entry key="app/src/main/res/drawable/ic_fav.xml" value="0.268" />
+        <entry key="app/src/main/res/drawable/ic_for_home_background.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_hello_sunshine_vintage_sign.xml" value="0.268" />
+        <entry key="app/src/main/res/drawable/ic_history.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_home.xml" value="0.2845" />
+        <entry key="app/src/main/res/drawable/ic_kablam_happy_heart.xml" value="0.268" />
+        <entry key="app/src/main/res/drawable/ic_sloth2.xml" value="0.268" />
+        <entry key="app/src/main/res/drawable/ic_warning.xml" value="0.268" />
+        <entry key="app/src/main/res/drawable/ic_web_search_grey.xml" value="0.268" />
+        <entry key="app/src/main/res/drawable/ic_weird_tiki_face.xml" value="0.268" />
+        <entry key="app/src/main/res/drawable/no_connection.xml" value="0.268" />
         <entry key="app/src/main/res/drawable/outline_favorite_24.xml" value="0.2405" />
         <entry key="app/src/main/res/drawable/outline_favorite_border_24.xml" value="0.2405" />
         <entry key="app/src/main/res/drawable/outline_favorite_full_border_24.xml" value="0.2405" />
         <entry key="app/src/main/res/drawable/rounded.xml" value="0.22" />
         <entry key="app/src/main/res/drawable/search_icon.xml" value="0.22" />
+        <entry key="app/src/main/res/drawable/searchview_background.xml" value="0.268" />
         <entry key="app/src/main/res/drawable/toolbar_shape.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.333786231884058" />
         <entry key="app/src/main/res/layout/bottom_nav.xml" value="0.333786231884058" />
         <entry key="app/src/main/res/layout/custom_row.xml" value="0.264945652173913" />
         <entry key="app/src/main/res/layout/data_result_row.xml" value="0.264945652173913" />
+        <entry key="app/src/main/res/layout/definition_item_list.xml" value="0.322463768115942" />
         <entry key="app/src/main/res/layout/detail_fragment.xml" value="0.264945652173913" />
+        <entry key="app/src/main/res/layout/fav_item_view.xml" value="0.322463768115942" />
         <entry key="app/src/main/res/layout/favorite_fragment.xml" value="0.333786231884058" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.333786231884058" />
         <entry key="app/src/main/res/layout/history_fragment.xml" value="0.333786231884058" />
         <entry key="app/src/main/res/layout/history_word_item_list.xml" value="0.322463768115942" />
         <entry key="app/src/main/res/layout/home_fragment.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/meaning_item_list.xml" value="0.23529411764705882" />
         <entry key="app/src/main/res/layout/no_lay.xml" value="0.17325227963525835" />
         <entry key="app/src/main/res/layout/search_fragment.xml" value="0.333786231884058" />
+        <entry key="app/src/main/res/layout/searched_item_list.xml" value="0.322463768115942" />
         <entry key="app/src/main/res/layout/text_item_view.xml" value="0.264945652173913" />
         <entry key="app/src/main/res/layout/toolbar.xml" value="0.41605839416058393" />
+        <entry key="app/src/main/res/layout/word_item_list.xml" value="0.322463768115942" />
         <entry key="app/src/main/res/menu/menu.xml" value="0.22" />
         <entry key="app/src/main/res/menu/my_nav_items.xml" value="0.35625" />
         <entry key="app/src/main/res/menu/nav_menu.xml" value="0.35625" />
+        <entry key="app/src/main/res/menu/search_view.xml" value="0.35625" />
       </map>
     </option>
   </component>

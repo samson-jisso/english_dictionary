@@ -51,7 +51,7 @@ class HistoryWordAdapter(private val interaction: Interaction? = null) :
     }
 
     fun submitList(list: List<HistoryWords>) {
-        differ.submitList(list.reversed())
+        differ.submitList(list)
     }
 
     class HistoryWordViewHolder

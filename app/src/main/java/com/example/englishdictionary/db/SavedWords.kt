@@ -10,9 +10,5 @@ data class SavedWords(
     @PrimaryKey(autoGenerate = true)
     var wordId: Int,
     @ColumnInfo(name = "word")
-    var word: String,
-    @ColumnInfo(name = "partOfSpeech")
-    var partOfSpeech: String,
-    @ColumnInfo(name = "meaning")
-    var meanings: String
+    var word: String
 )

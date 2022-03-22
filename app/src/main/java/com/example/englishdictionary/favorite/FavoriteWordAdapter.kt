@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
-import com.example.englishdictionary.databinding.TextItemViewBinding
+import com.example.englishdictionary.databinding.FavItemViewBinding
 import com.example.englishdictionary.db.SavedWords
 
 class FavoriteWordAdapter(private val interaction: Interaction? = null) :
@@ -28,7 +28,7 @@ class FavoriteWordAdapter(private val interaction: Interaction? = null) :
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
 
         return FavoriteWordViewHolder(
-            TextItemViewBinding.inflate(LayoutInflater.from(parent.context), parent, false),
+            FavItemViewBinding.inflate(LayoutInflater.from(parent.context), parent, false),
             interaction
         )
     }
@@ -46,12 +46,12 @@ class FavoriteWordAdapter(private val interaction: Interaction? = null) :
     }
 
     fun submitList(list: List<SavedWords>) {
-        differ.submitList(list.reversed())
+        differ.submitList(list)
     }
 
     class FavoriteWordViewHolder
     constructor(
-        private val binding: TextItemViewBinding,
+        private val binding: FavItemViewBinding,
         private val interaction: Interaction?
     ) : RecyclerView.ViewHolder(binding.root) {
         val favWord = binding.favWord
