@@ -12,7 +12,7 @@
         android:padding="2sp"
         android:text="Meaning"
         android:textSize="11sp"
-        android:visibility="gone"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -24,7 +24,7 @@
         android:padding="2sp"
         android:text="@string/partOfSpeech"
         android:textSize="@dimen/BoldSize"
-        android:visibility="gone"
+
         app:layout_constraintEnd_toEndOf="@id/definition_text"
         app:layout_constraintStart_toStartOf="@id/definition_text"
         app:layout_constraintTop_toBottomOf="@+id/definition_text" />
@@ -37,7 +37,7 @@
         android:padding="2sp"
         android:text="synonyms"
         android:textSize="11sp"
-        android:visibility="gone"
+
         app:layout_constraintEnd_toEndOf="@id/definition"
         app:layout_constraintStart_toStartOf="@id/definition"
         app:layout_constraintTop_toBottomOf="@id/definition" />
@@ -49,7 +49,7 @@
         android:padding="2sp"
         android:text="@string/partOfSpeech"
         android:textSize="@dimen/BoldSize"
-        android:visibility="gone"
+
         app:layout_constraintEnd_toEndOf="@id/def_synonyms_text"
         app:layout_constraintStart_toStartOf="@id/def_synonyms_text"
         app:layout_constraintTop_toBottomOf="@id/def_synonyms_text" />
@@ -62,7 +62,7 @@
         android:padding="2sp"
         android:text="antonyms"
         android:textSize="11sp"
-        android:visibility="gone"
+
         app:layout_constraintEnd_toEndOf="@id/def_synonyms"
         app:layout_constraintStart_toStartOf="@id/def_synonyms"
         app:layout_constraintTop_toBottomOf="@id/def_synonyms" />
@@ -75,7 +75,7 @@
         android:text="@string/partOfSpeech"
 
         android:textSize="@dimen/BoldSize"
-        android:visibility="gone"
+
         app:layout_constraintEnd_toEndOf="@id/def_antonyms_text"
         app:layout_constraintStart_toStartOf="@id/def_antonyms_text"
         app:layout_constraintTop_toBottomOf="@+id/def_antonyms_text" />
@@ -88,7 +88,7 @@
         android:padding="2sp"
         android:text="example"
         android:textSize="11sp"
-        android:visibility="gone"
+
 
         app:layout_constraintEnd_toEndOf="@id/def_antonyms"
         app:layout_constraintStart_toStartOf="@id/def_antonyms"
@@ -101,7 +101,7 @@
         android:padding="2sp"
         android:text="@string/partOfSpeech"
         android:textSize="@dimen/BoldSize"
-        android:visibility="gone"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/example_text"
         app:layout_constraintStart_toStartOf="@+id/example_text"

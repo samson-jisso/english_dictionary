@@ -15,7 +15,7 @@
         android:fontFamily="@font/courgette"
         android:text="@string/partOfSpeech"
         android:textSize="11sp"
-        android:visibility="gone"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -25,10 +25,11 @@
         android:layout_width="match_parent"
         android:layout_height="0sp"
         android:textSize="20sp"
-        android:visibility="gone"
+
         app:layout_constraintEnd_toEndOf="@+id/partOfSpeech_text"
         app:layout_constraintStart_toStartOf="@id/partOfSpeech_text"
         app:layout_constraintTop_toBottomOf="@+id/partOfSpeech_text" />
+
     <TextView
         android:id="@+id/synonyms_text"
         android:layout_width="match_parent"
@@ -36,7 +37,7 @@
         android:fontFamily="@font/courgette"
         android:text="synonyms"
         android:textSize="11sp"
-        android:visibility="gone"
+
         app:layout_constraintEnd_toEndOf="@+id/partOfSpeech"
         app:layout_constraintStart_toStartOf="@+id/partOfSpeech"
         app:layout_constraintTop_toBottomOf="@+id/partOfSpeech" />
@@ -47,7 +48,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="5sp"
         android:textSize="20sp"
-        android:visibility="gone"
+
         app:layout_constraintBottom_toTopOf="@+id/antonyms_text"
         app:layout_constraintEnd_toEndOf="@id/synonyms_text"
         app:layout_constraintStart_toStartOf="@+id/synonyms_text"
@@ -60,7 +61,7 @@
         android:fontFamily="@font/courgette"
         android:text="antonyms"
         android:textSize="11sp"
-        android:visibility="gone"
+
 
         app:layout_constraintEnd_toEndOf="@id/synonyms"
         app:layout_constraintStart_toStartOf="@id/synonyms"
@@ -72,39 +73,40 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="5sp"
         android:textSize="20sp"
-        android:visibility="gone"
+
         app:layout_constraintEnd_toEndOf="@id/antonyms_text"
         app:layout_constraintStart_toStartOf="@+id/antonyms_text"
         app:layout_constraintTop_toBottomOf="@+id/antonyms_text" />
+
     <TextView
         android:id="@+id/line_text"
         android:layout_width="match_parent"
         android:layout_height="2sp"
         android:background="@color/myChooseColor"
-        android:visibility="gone"
+
         app:layout_constraintEnd_toEndOf="@+id/antonyms"
         app:layout_constraintStart_toStartOf="@+id/antonyms"
-        app:layout_constraintTop_toBottomOf="@+id/antonyms"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/antonyms" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/inner_definition"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-       android:padding="10sp"
+        android:padding="10sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/line_text"
         app:layout_constraintStart_toStartOf="@+id/line_text"
-        app:layout_constraintTop_toBottomOf="@+id/line_text"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@+id/line_text" />
+
     <TextView
         android:id="@+id/line_text2"
         android:layout_width="match_parent"
         android:layout_height="2sp"
         android:background="@color/myChooseColor"
-        android:visibility="gone"
+
         app:layout_constraintEnd_toEndOf="@+id/inner_definition"
         app:layout_constraintStart_toStartOf="@+id/inner_definition"
-        app:layout_constraintTop_toBottomOf="@+id/inner_definition"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/inner_definition" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
