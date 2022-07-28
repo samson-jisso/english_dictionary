@@ -7,7 +7,8 @@ import com.example.englishdictionary.data.local.entity.WordInfoEntity
 
 @Database(
     entities = [WordInfoEntity::class],
-    version = 2
+    version = 1,
+    exportSchema = true
 )
 @TypeConverters(Converters::class)
 abstract class WordDatabase : RoomDatabase() {

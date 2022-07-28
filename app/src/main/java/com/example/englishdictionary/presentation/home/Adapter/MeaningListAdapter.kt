@@ -2,24 +2,26 @@ package com.example.englishdictionary.presentation.home.Adapter
 
 import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.englishdictionary.databinding.MeaningItemListBinding
-import com.example.englishdictionary.domain.model.WordInfo
+import com.example.englishdictionary.domain.model.Definition
+import com.example.englishdictionary.domain.model.Meaning
 
 class MeaningListAdapter(private val interaction: Interaction? = null) :
-    RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+    RecyclerView.Adapter<RecyclerView.ViewHolder>(), DefinitionListAdapter.Interaction {
+    private lateinit var definitionListAdapter: DefinitionListAdapter
+    private lateinit var binding: MeaningItemListBinding
+    val DIFF_CALLBACK = object : DiffUtil.ItemCallback<Meaning>() {
 
-    val DIFF_CALLBACK = object : DiffUtil.ItemCallback<WordInfo>() {
-
-        override fun areItemsTheSame(oldItem: WordInfo, newItem: WordInfo): Boolean {
-            TODO("not implemented")
+        override fun areItemsTheSame(oldItem: Meaning, newItem: Meaning): Boolean {
+            return oldItem.partOfSpeech == newItem.partOfSpeech
         }
 
-        override fun areContentsTheSame(oldItem: WordInfo, newItem: WordInfo): Boolean {
-            TODO("not implemented")
+        override fun areContentsTheSame(oldItem: Meaning, newItem: Meaning): Boolean {
+            return oldItem == newItem
         }
 
     }
@@ -27,9 +29,9 @@ class MeaningListAdapter(private val interaction: Interaction? = null) :
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-
+        binding = MeaningItemListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return MeaningListViewHolder(
-            MeaningItemListBinding.inflate(LayoutInflater.from(parent.context), parent, false),
+            binding,
             interaction
         )
     }
@@ -37,7 +39,14 @@ class MeaningListAdapter(private val interaction: Interaction? = null) :
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (holder) {
             is MeaningListViewHolder -> {
-                holder.bind(differ.currentList[position], position)
+                val result = differ.currentList[position]
+                binding.innerDefinition.apply {
+                    layoutManager = LinearLayoutManager(holder.recycler.context)
+                    definitionListAdapter = DefinitionListAdapter(this@MeaningListAdapter)
+                    adapter = definitionListAdapter
+                    definitionListAdapter.submitList(result.definitions)
+                }
+                holder.bind(result, position)
             }
         }
     }
@@ -46,7 +55,7 @@ class MeaningListAdapter(private val interaction: Interaction? = null) :
         return differ.currentList.size
     }
 
-    fun submitList(list: List<WordInfo>) {
+    fun submitList(list: List<Meaning>) {
         differ.submitList(list)
     }
 
@@ -55,8 +64,19 @@ class MeaningListAdapter(private val interaction: Interaction? = null) :
         private val binding: MeaningItemListBinding,
         private val interaction: Interaction?
     ) : RecyclerView.ViewHolder(binding.root) {
-
-        fun bind(item: WordInfo, position: Int) = with(binding) {
+        val recycler = binding.innerDefinition
+        fun bind(item: Meaning, position: Int) = with(binding) {
+            partOfSpeech.text = item.partOfSpeech
+            item.synonyms?.let {
+                it.forEachIndexed { index, synonymsValue ->
+                    synonyms.text = "${index + 1}. $synonymsValue"
+                }
+            }
+            item.antonyms?.let {
+                it.forEachIndexed { index, antonymsValue ->
+                    antonyms.text = "${index + 1}. $antonymsValue"
+                }
+            }
 
             root.setOnClickListener {
                 interaction?.onItemSelected(position, item)
@@ -65,6 +85,10 @@ class MeaningListAdapter(private val interaction: Interaction? = null) :
     }
 
     interface Interaction {
-        fun onItemSelected(position: Int, item: WordInfo)
+        fun onItemSelected(position: Int, item: Meaning)
+    }
+
+    override fun onItemSelected(position: Int, item: Definition) {
+        TODO("Not yet implemented")
     }
 }

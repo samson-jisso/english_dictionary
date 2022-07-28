@@ -6,7 +6,6 @@
     android:layout_height="wrap_content"
     android:layout_marginStart="5sp"
     android:layout_marginEnd="5sp">
-
     <TextView
         android:id="@+id/partOfSpeech_text"
         android:layout_width="match_parent"
